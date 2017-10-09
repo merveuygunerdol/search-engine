@@ -23,6 +23,15 @@ fetch(endpoint)
 .then(blob => blob.json()) // dont know what type of data is it. has to be converted from raw to json. blob has a json() and it returns a promise
 .then(data => cities.push(...data)) // use spread(...) to make this array into individual args
 
+//find the searched word in the cities array
+function findMatches(wordToMatch, cities){
+return cities.filter(place => {
+//figure out if the city or state matches what was searched
+  const regex = new RegExp(wordToMatch, 'gi');//global insensitive
+  return place.city.match(regex) || place.state.match(regex)
+});
+}
+
 </script>
   </body>
 </html>
