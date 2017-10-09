@@ -17,6 +17,12 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+const cities = [];
+//fetch will retturn a promise  -- data which comes back from the fetch
+fetch(endpoint)
+.then(blob => blob.json()) // dont know what type of data is it. has to be converted from raw to json. blob has a json() and it returns a promise
+.then(data => cities.push(...data)) // use spread(...) to make this array into individual args
+
 </script>
   </body>
 </html>
